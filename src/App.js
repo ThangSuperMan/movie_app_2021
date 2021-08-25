@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Movie from "./Components/Movie";
+import { map } from "async";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [dataMovies, setDataMovies] = useState([]);
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  const getMovies = async () => {
+    const response = await axios.get(
+      "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
+    );
+    const movies = await response.data.data.movies;
+
+    // assign value for variable dataMovies
+    setDataMovies(movies);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="movies">
+        {dataMovies.map((movie) => {
+          return (
+            <Movie
+              id={movie.id}
+              title={movie.title}
+              year={movie.year}
+              genres={movie.genres}
+              summary={movie.summary}
+              poster={movie.medium_cover_image}
+            />
+          );
+        })}
+      </div>
     </div>
   );
-}
+};
 
 export default App;

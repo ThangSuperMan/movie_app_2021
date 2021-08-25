@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,300&display=swap");
+
+html {
+  font-size: 62.5%;
+  /* 1rem = 10px */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.movies {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* 30 * 1 = 30
+  30 / 2 = 15px*/
+}
+
+.movies__movie {
+  width: calc(50% - 1.5rem);
+  height: auto;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
+.movies__movie {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 1.5rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /*
+  15 * 1 = 15
+  15 / 2 = 7.5px
+  */
+}
+
+.movie__image {
+  width: calc(30% - 2.5rem);
+  margin-right: 2.5rem;
+}
+
+.movie__content {
+  width: 70%;
+}
+
+.movie__image img {
+  width: 100%;
+  height: 22rem;
+  object-fit: cover;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.movie__content .movie__title {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+.movie__content .movie__year {
+  font-size: 1.5rem;
+  color: rgba(57, 46, 46, 0.687);
+  font-weight: 300;
+}
+
+.movie__content .movie__list-genres {
+  font-size: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.movie__content .movie__list-genres li {
+  list-style: none;
+  color: rgba(57, 46, 46, 0.687);
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.movie__content .movie__summary {
+  font-size: 1.4rem;
+  color: rgba(89, 68, 68, 0.797);
+}
